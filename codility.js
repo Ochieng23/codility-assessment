@@ -1,12 +1,8 @@
 String.prototype.camelCase = function() {
-    // Split the string into an array of words
-    var words = this.split(' ');
-  
-    // Capitalize the first letter of each word and concatenate them
-    var camelCase = words.map(function(word) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    }).join('');
-  
-    return camelCase;
+    // Replace all spaces with empty string and capitalize the first letter of each word
+    return this.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+      return index === 0 ? word.toLowerCase() : word.toUpperCase();
+    }).replace(/\s+/g, '');
   };
   
+  git
